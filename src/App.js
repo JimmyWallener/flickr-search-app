@@ -1,10 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Header from "./Header";
 import Photo from "./Photo";
-import Gallery from "./Gallery";
 import Axios from "axios";
-
-import { HashRouter as Router, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -30,25 +27,22 @@ class App extends Component {
     const newObject = { id: userid, url: uri };
     this.setState({ gallery: [...this.state.gallery, newObject] });
   };
-  removeFromGallery = (id) => {};
+  removeFromGallery = (id) => {
+    console.log(id);
+    this.setState({
+      gallery: [...this.state.gallery.filter((img) => img.id !== id)],
+    });
+  };
 
   render() {
     return (
       <div className="container">
-        <Router>
-          <Header searchApi={this.searchApi} />
-
-          <Route />
-          <Fragment>
-            <div>
-              <Photo
-                photos={this.state.photos}
-                addToGallery={this.addToGallery}
-              />
-              <Gallery gallery={this.state.gallery} />
-            </div>
-          </Fragment>
-        </Router>
+        <Header
+          searchApi={this.searchApi}
+          gallery={this.state.gallery}
+          removeFromGallery={this.removeFromGallery}
+        />
+        <Photo photos={this.state.photos} addToGallery={this.addToGallery} />
       </div>
     );
   }

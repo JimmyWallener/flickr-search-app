@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+
 import "./App.css";
 import PropTypes from "prop-types";
 
 class Photo extends Component {
   render() {
     const photos = this.props.photos;
+
     return (
       <div className="photo-wrapper">
         {photos.map((e) => (
