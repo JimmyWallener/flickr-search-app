@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/flickr-search-app/precache-manifest.d694d44f942fa740a88a52e43ffde288.js"
+  "/flickr-search-app/precache-manifest.d3a05d28461eaefb24b6300492843521.js"
 );
 
 self.addEventListener('message', (event) => {
